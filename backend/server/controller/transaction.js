@@ -44,7 +44,7 @@ const transactionDetail = async (req, res) => {
                 if (req.query.category) {
                     builder.where('category', req.query.category);
                 }
-                if (req.query.transaction) {
+                if (req.query.payerId) {
                     builder.where('payerId', req.query.payerId);
                 }
             })
@@ -66,7 +66,7 @@ const updateTrasacation = async (req, res) => {
                 if (req.query.category) {
                     builder.where('category', req.query.category);
                 }
-                if (req.query.transaction) {
+                if (req.query.payerId) {
                     builder.where('payerId', req.query.payerId);
                 }
             })
