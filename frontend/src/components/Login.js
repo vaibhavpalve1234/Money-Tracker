@@ -22,6 +22,9 @@ const Login = () => {
             alert("user created!! ")
             navigate('/List', {state:{token:responce.data.token,data:responce.data}})
         }
+        else{
+            alert("wrong password ")
+        }
     }
 
     const handleSubmit = (e) => {
