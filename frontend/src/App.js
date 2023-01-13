@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import Login from './components/Login';
-import Sign from './components/Sign'
-import AuthTokenVerify from './components/auth'
-import List from './components/List'
+import Login from './components/header/Login';
+import Sign from './components/header/Sign'
+import AuthTokenVerify from './button/auth'
+import List from './components/expenses/List'
 import BaseHome from './components/Home';
 
 function App() {
@@ -43,9 +43,14 @@ function App() {
                 <Route path="/sign-up" element={<Sign />} />
               </Routes>
             </div>
-            <div className='nav-item'>
+            <div >
               <Routes>
                 <Route path="/List" element={(auth.isAuthenticated)?(auth.isAuthenticated && <List />):<Login />} />
+              </Routes>
+            </div>
+            <div >
+              <Routes>
+                <Route path="/Split-List" element={(auth.isAuthenticated)?(auth.isAuthenticated && <List />):<Login />} />
               </Routes>
             </div>
           </div>
