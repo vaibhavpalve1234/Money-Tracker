@@ -40,25 +40,33 @@ const Sign = () => {
     }
 
     return (
-        <div className="position-relative">
+        <div >
             <form onSubmit={(e) => { handleSubmit(e) }}>
                 <h3> Sign-up Form </h3>
+                <div className="mb-1">
                 <label >
                     UserId:
                 </label><br />
-                <input type="number" value={userId} required onChange={(e) => { handleUserIdchange(e) }} /><br />
+                <input type="number" className="form-control" value={userId} required onChange={(e) => { handleUserIdchange(e) }} /><br />
+                </div>
+                <div className="mb-1">
                 <label>
                     Name:
                 </label><br />
-                <input type="text" value={name} required onChange={(e) => { handleNameChange(e) }} /><br />
+                <input type="text" value={name} className="form-control" required onChange={(e) => { handleNameChange(e) }} /><br />
+                </div>
+                <div className="mb-1">
                 <label>
                     Email:
                 </label><br />
-                <input type="email" value={email} required onChange={(e) => { handleEmailChange(e) }} /><br />
+                <input type="email" value={email} className="form-control" required onChange={(e) => { handleEmailChange(e) }} /><br />
+                </div>
+                <div className="mb-1">
                 <label>
                     Password:
                 </label><br />
-                <input type="password" value={password} required onChange={(e) => { handlePasswordChange(e) }} /><br />
+                <input type="password" value={password} className="form-control" required onChange={(e) => { handlePasswordChange(e) }} /><br />
+                </div>
                 <div className="d-grid">
                     <button type="submit" className="btn btn-primary">
                         Submit

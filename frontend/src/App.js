@@ -3,9 +3,13 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import Login from './components/Login';
 import Sign from './components/Sign'
-import TransactionForm from './components/ExpenseItem'
+import AuthTokenVerify from './components/auth'
+import List from './components/List'
+import BaseHome from './components/Home';
 
 function App() {
+  let auth = AuthTokenVerify()
+  console.log(auth.isAuthenticated, auth.status);
   return (
     <Router>
       <div className="App">
@@ -32,12 +36,18 @@ function App() {
         </nav>
         <div className="auth-wrapper">
           <div className="auth-inner">
-            <Routes>
-              <Route exact path="/" element={<Sign />} />
-              <Route path="/Login" element={<Login />} />
-              <Route path="/sign-up" element={<Sign />} />
-              <Route path="/List" element={<TransactionForm />} />
-            </Routes>
+            <div>
+              <Routes>
+                <Route exact path="/" element={<BaseHome />} />
+                <Route path="/Login" element={<Login />} />
+                <Route path="/sign-up" element={<Sign />} />
+              </Routes>
+            </div>
+            <div className='nav-item'>
+              <Routes>
+                <Route path="/List" element={(auth.isAuthenticated)?(auth.isAuthenticated && <List />):<Login />} />
+              </Routes>
+            </div>
           </div>
         </div>
       </div>
