@@ -17,13 +17,16 @@ const Login = () => {
     const postData = async(email, password) =>{
         console.log(email, password);
         const responce= await axios.post('http://localhost:4000/login',{ email, password})
-        console.log(responce.data.token);
-        if(responce.statusText ==='Created'){
+        console.log(responce.data);
+        if(responce.data.token){
             alert("user created!! ")
+            window.localStorage.setItem('token', JSON.stringify(responce.data.token));
+        
             navigate('/List', {state:{token:responce.data.token,data:responce.data}})
         }
         else{
             alert("wrong password ")
+            navigate('/')
         }
     }
 
