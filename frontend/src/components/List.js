@@ -5,7 +5,7 @@ const List = () => {
     return (
         <div className="navbar-nav ml-auto">
             <TransactionForm />
-            <div class="container">
+            <div class="nav-item nav justify-content-center">
                 <div class="row ">
                     {/* <div class="col"> */}
                         <div className="col card">

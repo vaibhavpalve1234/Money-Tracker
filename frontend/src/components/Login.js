@@ -20,7 +20,7 @@ const Login = () => {
         console.log(responce.data);
         if(responce.data.token){
             alert("user created!! ")
-            window.localStorage.setItem('token', JSON.stringify(responce.data.token));
+            window.localStorage.setItem('token', responce.data.token);
         
             navigate('/List', {state:{token:responce.data.token,data:responce.data}})
         }

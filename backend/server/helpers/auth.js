@@ -1,7 +1,8 @@
 const jwt = require("jsonwebtoken")
+require('dotenv').config()
 const requireSignin = (req, res, next) => {
     try {
-        const decoded = jwt.verify(req.headers.token, process.env.JWTSECRET)
+        const decoded = jwt.verify(req.headers.token, '124bjfbshsvjvasgf')
         req.user = decoded
         next()
     } catch (error) {

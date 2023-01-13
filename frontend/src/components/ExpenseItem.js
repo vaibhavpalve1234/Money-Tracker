@@ -10,12 +10,14 @@ const TransactionForm = () => {
     return (
         <div>
             <div >
+            <SplitItemList />
+            <br/>
                 <div className="nav justify-content-center" >
                     <button type="submit" disabled={addItem} className="btn btn-primary " onClick={() => setAddItem(true)}>
                         Add Item
-                    </button>
-                    <SplitItemList />
+                    </button>  
                 </div>
+                <br/>
                 <div >
                     {(addItem && <AddExpenseItem headerData={location} />)}
                 </div>

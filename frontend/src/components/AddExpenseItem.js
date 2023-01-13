@@ -1,14 +1,36 @@
 import { useState } from 'react'
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom';
 const AddExpenseItem = (props) => {
+    const navigate = useNavigate()
     const [payerId, setpayerId] = useState('')
     const [amount, setamount] = useState()
     const [category, setcategory] = useState('')
     const [description, setdescription] = useState('')
-    console.log(props);
 
+    const postTransactionData = async(payerId, amount, category, description) =>{
+        const token  = window.localStorage.getItem('token')
+        console.log(token);
+        const result = await axios.post('http://localhost:4000/transaction',
+        {payerId, amount, category, description}, 
+        {
+            headers:
+            {
+                token
+            }
+        })
+        console.log(result);
+        if(result.statusText ==='OK'){
+            alert("Transaction added !! ")
+            navigate('/List')
+        }
+    }
+    const handleChange=()=>{
+
+    }
     const handleSumit = (e) => {
         e.preventDefault()
-        console.log(payerId, amount, category, description);
+        postTransactionData(payerId, amount, category, description);
     }
 
     return (
@@ -56,7 +78,7 @@ const AddExpenseItem = (props) => {
                     />
                 </div>
                 <div className="d-grid">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary" onClick={handleChange}>
                         Add Item
                     </button>
                 </div>

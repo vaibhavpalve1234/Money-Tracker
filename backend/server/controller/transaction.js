@@ -16,9 +16,10 @@ const createTransaction = async (req, res) => {
             category,
             description
         })
-        res.status(200).send(transactionDetails)
+        res.status(200).send({Message:"Added Data"})
     } catch (error) {
         console.log(error);
+        return res.status(404).send({ message: error})
     }
 
 }
