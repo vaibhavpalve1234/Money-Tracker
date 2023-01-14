@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom';
-const AddExpenseItem = (props) => {
+const AddExpenseItem = () => {
     const navigate = useNavigate()
     const [payerId, setpayerId] = useState('')
     const [amount, setamount] = useState()

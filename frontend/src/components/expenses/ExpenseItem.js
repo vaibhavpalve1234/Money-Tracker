@@ -1,8 +1,6 @@
 import AddExpenseItem from './AddExpenseItem'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom';
-import SplitItemList from './SplitItem'
-
 const TransactionForm = () => {
     const location = useLocation();
     const [addItem, setAddItem] = useState(false)
@@ -10,7 +8,6 @@ const TransactionForm = () => {
     return (
         <div>
             <div >
-            <SplitItemList />
             <br/>
                 <div className="nav justify-content-center" >
                     <button type="submit" disabled={addItem} className="btn btn-primary " onClick={() => setAddItem(true)}>
@@ -19,9 +16,10 @@ const TransactionForm = () => {
                 </div>
                 <br/>
                 <div >
-                    {(addItem && <AddExpenseItem headerData={location} />)}
+                    {(addItem && <AddExpenseItem />)}
                 </div>
             </div>
+            <a href='/Split-List'>SplitItemList</a>
         </div>
     )
 }

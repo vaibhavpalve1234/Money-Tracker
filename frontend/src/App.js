@@ -6,6 +6,7 @@ import Sign from './components/header/Sign'
 import AuthTokenVerify from './button/auth'
 import List from './components/expenses/List'
 import BaseHome from './components/Home';
+import SplitItemList from './components/expenses/SplitItemList'
 
 function App() {
   let auth = AuthTokenVerify()
@@ -50,7 +51,7 @@ function App() {
             </div>
             <div >
               <Routes>
-                <Route path="/Split-List" element={(auth.isAuthenticated)?(auth.isAuthenticated && <List />):<Login />} />
+                <Route path="/Split-List" element={(auth.isAuthenticated)?(auth.isAuthenticated && <SplitItemList />):<Login />} />
               </Routes>
             </div>
           </div>
