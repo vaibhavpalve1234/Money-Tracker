@@ -27,10 +27,10 @@ const createTransaction = async (req, res) => {
 const transactionsDetail = async (req, res) => {
     try {
         const getAllTransationDetails = await transactions.query().select('*')
-        res.status(200).send({ data: getAllTransationDetails })
+        res.status(200).send(getAllTransationDetails)
     } catch (error) {
         console.log(error);
-        res.status(404).send(error)
+        res.status(404).send({error:error.message})
     }
 }
 

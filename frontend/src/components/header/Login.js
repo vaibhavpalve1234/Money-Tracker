@@ -19,9 +19,8 @@ const Login = () => {
         const responce= await axios.post('http://localhost:4000/login',{ email, password})
         console.log(responce.data);
         if(responce.data.token){
-            alert("user created!! ")
-            window.localStorage.setItem('token', responce.data.token);
-        
+            window.location.reload()
+            window.localStorage.setItem('token', responce.data.token);    
             navigate('/List', {state:{token:responce.data.token,data:responce.data}})
         }
         else{

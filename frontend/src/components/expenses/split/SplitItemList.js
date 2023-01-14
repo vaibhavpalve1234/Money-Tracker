@@ -5,24 +5,20 @@ import SplitItems from './SplitItems';
 const SplitItemList = () => {
     const [payerId, setPayerId] = useState('')
     const [category, setCategory] = useState('')
-    const [splitData, setSplitData] = useState({})
-
-    useEffect(() => {
-        const getData = async () => {
-            const token = window.localStorage.getItem('token')
-            const { data } = await axios.get('http://localhost:4000/splitTransaction', { headers: { token } })
-            setSplitData({ data })
-        }
-        getData()
-    }, [{}]
-    )
+    const [splitData, setSplitData] = useState('')
+    const getData = async () => {
+        const token = window.localStorage.getItem('token')
+        const result = await axios.get('http://localhost:4000/splitTransaction', { headers: { token } })
+        console.log(result.data);
+        setSplitData(result.data)
+    }
+    useEffect((e) => { getData() }, [])
     function handlePayerIdChange(event) {
         setPayerId(event.target.value)
     }
     function handleCategoryChange(event) {
         setCategory(event.target.value)
     }
-    // console.log(splitData);
     return (
         <div>
             <div className="nav justify-content-center">
@@ -51,11 +47,10 @@ const SplitItemList = () => {
             </div>
             <div className="row">
                 {Object.values(splitData).map((e) => {
-                    console.log(e);
                     return (
                         <div className="col card">
                             <div className="card-body">
-                                <SplitItems splitItemList={e} />
+                                <SplitItems  splitItemList={e} />
                             </div>
                         </div>
                     )

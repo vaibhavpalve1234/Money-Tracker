@@ -1,7 +1,6 @@
-const ShowItem = (props) => {
-    const splitdata=props.splitItemList
-    console.log(splitdata);
-    
+// import ShowSplitItem from './ShowSplitItem'
+const SplitItems = (props) => {
+    const splitdata = props.splitItemList
     return (
         <div>
             <label>Id:</label>
@@ -43,4 +42,4 @@ const ShowItem = (props) => {
     );
 }
 
-export default ShowItem;
+export default SplitItems;

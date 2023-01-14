@@ -6,7 +6,7 @@ import Sign from './components/header/Sign'
 import AuthTokenVerify from './button/auth'
 import List from './components/expenses/List'
 import BaseHome from './components/Home';
-import SplitItemList from './components/expenses/SplitItemList'
+import SplitItemList from './components/expenses/split/SplitItemList'
 
 function App() {
   let auth = AuthTokenVerify()
