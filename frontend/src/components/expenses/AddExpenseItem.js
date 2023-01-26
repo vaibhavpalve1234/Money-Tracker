@@ -22,7 +22,7 @@ const AddExpenseItem = () => {
         console.log(result);
         if(result.statusText ==='OK'){
             alert("Transaction added !! ")
-            navigate('/List')
+            navigate('/List',{replace:true})
         }
     }
     const handleChange=()=>{

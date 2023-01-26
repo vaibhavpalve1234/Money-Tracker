@@ -7,6 +7,8 @@ import AuthTokenVerify from './button/auth'
 import List from './components/expenses/List'
 import BaseHome from './components/Home';
 import SplitItemList from './components/expenses/split/SplitItemList'
+import AddExpenseItem from './components/expenses/AddExpenseItem';
+import EditExpenseItem from './components/expenses/EditExpensetItem';
 
 function App() {
   let auth = AuthTokenVerify()
@@ -46,12 +48,22 @@ function App() {
             </div>
             <div >
               <Routes>
-                <Route path="/List" element={(auth.isAuthenticated)?(auth.isAuthenticated && <List />):<Login />} />
+                <Route path="/List" element={(auth.isAuthenticated) ? (auth.isAuthenticated && <List />) : <Login />} />
               </Routes>
             </div>
+              <div>
+                <Routes>
+                  <Route path="/Form" element={(auth.isAuthenticated) ? (auth.isAuthenticated && <AddExpenseItem />) : <Login />} />
+                </Routes>
+              </div>
+              {/* <div>
+                <Routes>
+                  <Route path="/EditForm/:id" element={(auth.isAuthenticated) ? (auth.isAuthenticated && <List />) : <Login />} />
+                </Routes>
+              </div> */}
             <div >
               <Routes>
-                <Route path="/Split-List" element={(auth.isAuthenticated)?(auth.isAuthenticated && <SplitItemList />):<Login />} />
+                <Route path="/Split-List" element={(auth.isAuthenticated) ? (auth.isAuthenticated && <SplitItemList />) : <Login />} />
               </Routes>
             </div>
           </div>

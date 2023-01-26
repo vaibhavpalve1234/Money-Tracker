@@ -12,7 +12,7 @@ const DeleteExpenseItem = (props) => {
             console.log(result);
             if (result.statusText === 'OK') {
                 alert("Transaction deleted !! ")
-                navigate('/List')
+                navigate('/List', {replace:true})
             }
         }
     }

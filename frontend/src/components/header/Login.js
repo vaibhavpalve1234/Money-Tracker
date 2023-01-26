@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import axios from'axios';
-import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('')
@@ -14,19 +14,18 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
-    const postData = async(email, password) =>{
-        console.log(email, password);
-        const responce= await axios.post('http://localhost:4000/login',{ email, password})
-        console.log(responce.data);
-        if(responce.data.token){
-            window.location.reload()
-            window.localStorage.setItem('token', responce.data.token);    
-            navigate('/List', {state:{token:responce.data.token,data:responce.data}})
+    const postData = async (email, password) => {
+        const responce = await axios.post('http://localhost:4000/login', { email, password })
+        if (responce?.data?.token) {
+            window.localStorage.setItem('token', responce.data.token);
+            alert('user Login Succefully')
+            navigate('/List', { replace: true })
         }
-        else{
+        else {
             alert("wrong password ")
             navigate('/')
         }
+
     }
 
     const handleSubmit = (e) => {
@@ -73,7 +72,7 @@ const Login = () => {
                     </button>
                 </div>
                 <p className="forgot-password text-right">
-                    Forgot <a href="/">password?</a>
+                    Forgot <a href="/sign-up">password?</a>
                 </p>
             </form>
         </div>
